@@ -6,8 +6,7 @@ on:
     
 env:
   ROM_URL: https://sysupwsdl.vivo.com.cn/upgrade/upload/UpdateFiles/20201215073327bbcb7082271631abb20e994c8a02cb86.zip
-  ROM_NAME: MIUI
-  TZ: Asia/Shanghai
+  ROM_NAME: Generic
 
 jobs:
   build:
@@ -23,16 +22,19 @@ jobs:
            sudo apt update && sudo apt upgrade -y
            sudo apt install git aria2 brotli android-sdk-libsparse-utils android-sdk-ext4-utils -y
            sudo apt install p7zip-full zip unzip gawk sed curl wget openjdk-14-jdk -y
+           sudo pip3 install requests base58 pycryptodomex
            sudo apt install unace unrar zip unzip p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller device-tree-compiler liblzma-dev python3-pip liblz4-tool
        
        - name: Git Clone ErfanGSI ...
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
+         run: git clone --recurse-submodules https://github.com/wenrou2554/ErfanGSIs.git
        
        - name: Begining ...
          run: |
            sudo chmod -R 777 ErfanGSIs/*
-           echo $(pwd)
            cd ErfanGSIs
            sudo bash url2GSI.sh $ROM_URL $ROM_NAME
+           echo 温柔的慈悲
+           git clone https://github.com/wenrou2554/wenshushu.git
+           python3 wenshushu/wss.py upload output/*.img
          
             
