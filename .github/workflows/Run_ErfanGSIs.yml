@@ -28,7 +28,7 @@ jobs:
        - name: 克隆ErfanGSI工具 ...
          run: git clone --recurse-submodules https://github.com/wenrou2554/ErfanGSIs.git
        
-       - name: Begining ...
+       - name: 开始制作GSI ...
          run: |
            sudo chmod -R 777 ErfanGSIs/*
            cd ErfanGSIs
@@ -36,13 +36,11 @@ jobs:
        
        - name: 极限压缩 ...
          run: |
-           mkdir Errors
-           7z a -t7z Errors/ErfanGSI.7z "/home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/*" -mx=9 -ms=200m -mf -mhc -mhcf -m0=LZMA:a=2:d=25:mf=bt4b:fb=64 -mmt -r
+           7z a -t7z ErfanGSI.7z output/*
        
        - name: 上传至文叔叔 ...
          run: |
            echo 温柔的慈悲
-           cd Errors
            git clone https://github.com/wenrou2554/wenshushu.git
            python3 wenshushu/wss.py upload ErfanGSI.7z
          
