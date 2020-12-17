@@ -14,10 +14,10 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-       - name: Checkout
+       - name: 测试 ...
          uses: actions/checkout@v2
        
-       - name: Initialization environment ...
+       - name: 环境初始化 ...
          run: |
            sudo apt update && sudo apt upgrade -y
            sudo apt install git aria2 brotli android-sdk-libsparse-utils android-sdk-ext4-utils -y
@@ -25,7 +25,7 @@ jobs:
            sudo pip3 install requests base58 pycryptodomex
            sudo apt install unace unrar zip unzip p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller device-tree-compiler liblzma-dev python3-pip liblz4-tool
        
-       - name: Git Clone ErfanGSI ...
+       - name: 克隆ErfanGSI工具 ...
          run: git clone --recurse-submodules https://github.com/wenrou2554/ErfanGSIs.git
        
        - name: Begining ...
@@ -33,8 +33,17 @@ jobs:
            sudo chmod -R 777 ErfanGSIs/*
            cd ErfanGSIs
            sudo bash url2GSI.sh $ROM_URL $ROM_NAME
+       
+       - name: 极限压缩 ...
+         run: |
+           mkdir Errors
+           7z a -t7z Errors/ErfanGSI.7z "/home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/*" -mx=9 -ms=200m -mf -mhc -mhcf -m0=LZMA:a=2:d=25:mf=bt4b:fb=64 -mmt -r
+       
+       - name: 上传至文叔叔 ...
+         run: |
            echo 温柔的慈悲
+           cd Errors
            git clone https://github.com/wenrou2554/wenshushu.git
-           python3 wenshushu/wss.py upload output/*.img
+           python3 wenshushu/wss.py upload ErfanGSI.7z
          
             
