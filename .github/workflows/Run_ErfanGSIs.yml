@@ -22,7 +22,7 @@ jobs:
            sudo apt install git aria2 brotli -y
            sudo apt install p7zip-full zip unzip gawk sed curl wget openjdk-14-jdk -y
            sudo apt install unace arj python3-pip
-           #sudo pip3 install requests base58 pycryptodomex
+           sudo pip3 install requests base58 pycryptodomex
        
        - name: 克隆ErfanGSI工具 ...
          run: git clone --recurse-submodules https://github.com/wenrou2554/ErfanGSIs.git
@@ -38,16 +38,16 @@ jobs:
            ls /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
            cd /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/
            mkdir HS
-           #sudo 7z a -t7z Gsi.7z output/* -mx=9 -mmt
-           sudo zip -r HS/ErfanGSI.zip output/*
+           7z a -t7z HS/ErfanGSI.7z output/* -mx=9 -mmt
+           #sudo zip -r HS/ErfanGSI.zip output/*
        
        - name: 上传 ...
          run: |
            echo 温柔的慈悲
            cd /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/HS
-           curl -sL https://git.io/file-transfer | sh
+           #curl -sL https://git.io/file-transfer | sh
            #git clone https://github.com/wenrou2554/wenshushu.git
-           #sudo python3 wenshushu/wss.py upload ErfanGSI.zip
-           sudo ./transfer bit ErfanGSI.zip
+           python3 wenshushu/wss.py upload ErfanGSI.zip
+           #sudo ./transfer bit ErfanGSI.zip
          
             
