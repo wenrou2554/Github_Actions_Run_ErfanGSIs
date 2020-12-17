@@ -19,11 +19,10 @@ jobs:
        
        - name: 环境初始化 ...
          run: |
-           sudo apt update && sudo apt upgrade -y
-           sudo apt install git aria2 brotli android-sdk-libsparse-utils android-sdk-ext4-utils -y
+           sudo apt install git aria2 brotli -y
            sudo apt install p7zip-full zip unzip gawk sed curl wget openjdk-14-jdk -y
+           sudo apt install unace arj python3-pip
            sudo pip3 install requests base58 pycryptodomex
-           sudo apt install unace unrar zip unzip p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller device-tree-compiler liblzma-dev python3-pip liblz4-tool
        
        - name: 克隆ErfanGSI工具 ...
          run: git clone --recurse-submodules https://github.com/wenrou2554/ErfanGSIs.git
