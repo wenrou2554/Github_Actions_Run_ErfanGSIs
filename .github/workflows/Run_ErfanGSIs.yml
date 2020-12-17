@@ -5,8 +5,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://sysupwsdl.vivo.com.cn/upgrade/upload/UpdateFiles/20201215073327bbcb7082271631abb20e994c8a02cb86.zip
-  ROM_NAME: Generic
+  ROM_URL: https://hugeota.d.miui.com/20.12.9/miui_LAVENDER_20.12.9_e9cdcdb88d_10.0.zip
+  ROM_NAME: MIUI
 
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
            ls
            ls /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
            mkdir final
-           zip -r final/ErfanGSI.zip /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
+           zip -r final/ErfanGSI.zip output/
        
        - name: 上传至文叔叔 ...
          run: |
