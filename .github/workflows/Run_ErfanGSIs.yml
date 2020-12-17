@@ -33,14 +33,17 @@ jobs:
            cd ErfanGSIs
            sudo bash url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: 极限压缩 ...
+       - name: 压缩 ...
          run: |
-           7z a -t7z ErfanGSI.7z output/*
+           ls
+           ls /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
+           mkdir final
+           zip -r final/ErfanGSI.zip /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
        
        - name: 上传至文叔叔 ...
          run: |
            echo 温柔的慈悲
            git clone https://github.com/wenrou2554/wenshushu.git
-           python3 wenshushu/wss.py upload ErfanGSI.7z
+           python3 wenshushu/wss.py upload final/ErfanGSI.zip
          
             
