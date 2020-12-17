@@ -4,7 +4,7 @@
 ### 步骤如下： 
 
 - 首先，fork 这个仓库。 
-- 接着，编辑 build_ErfanGSIs.yml 文件，把其中的 ROM_URL 改成你要做 gsi 的底包（注意直链）；还有 ROM_NAME 改成你的 ROM 名称。 
+- 接着，编辑 Run_ErfanGSIs.yml 文件，把其中的 ROM_URL 改成你要做 gsi 的底包（注意直链）；还有 ROM_NAME 改成你的 ROM 名称。 
 - 然后，按 Star 小星星就可以开始了！ 
 - 最后，在 【上传至文叔叔】 里展开，看 Download Link 链接，访问即可下载。 
 
@@ -13,7 +13,7 @@
 
 ## 附：ErfanGSI支持的ROM ##
 
-> ROM_NAME里填一摸一样的，下的ROM也要一样；Generic是（类）原生的意思
+> ROM_NAME里填一模一样的，下的ROM也要一样；Generic是（类）原生的意思
 
 ### 9 Pie： ### 
 > ColorOS	
