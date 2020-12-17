@@ -38,15 +38,15 @@ jobs:
            ls /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/output/
            cd /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/
            mkdir HS
-           7z a -t7z HS/ErfanGSI.7z output/* -mx=9 -mmt
-           #sudo zip -r HS/ErfanGSI.zip output/*
+           #7z a -t7z HS/ErfanGSI.7z output/* -mx=9 -mmt
+           sudo zip -9r HS/ErfanGSI.zip output/*
        
        - name: 上传 ...
          run: |
            echo 温柔的慈悲
            cd /home/runner/work/Github_Actions_Run_ErfanGSIs/Github_Actions_Run_ErfanGSIs/ErfanGSIs/HS
            #curl -sL https://git.io/file-transfer | sh
-           #git clone https://github.com/wenrou2554/wenshushu.git
+           git clone https://github.com/wenrou2554/wenshushu.git
            python3 wenshushu/wss.py upload ErfanGSI.zip
            #sudo ./transfer bit ErfanGSI.zip
          
